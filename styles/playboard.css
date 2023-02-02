@@ -10,12 +10,42 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    position: relative;
+}
+
+.players span{
+    /*background-color: tomato;*/
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    border-radius: 10px;
+    cursor: default;
+    font-weight: medium;
+    padding: 10px 0px;
+    position: relative;
+    z-index: 5;
+    color: rgb(60, 63, 247);
+}
+
+.players span:nth-child(1){
+    color: white;
 }
 
 .details{
     background-color: white;
     border-radius: 8px;
     padding: 15px;
+}
+
+.players .slider{
+    position: absolute;
+    background-color: rgb(60, 63, 247);
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 8px;
+    z-index: 2;
 }
 
 .play-area{
@@ -33,4 +63,6 @@
     margin: 2px;
     cursor: pointer;
     border-radius: 8px;
+    font-size: 85px;
+    text-align: center;
 }

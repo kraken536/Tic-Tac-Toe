@@ -32,7 +32,7 @@
 .options button{
     width: 100%;
     border: none;
-    background-color: aqua;
+    background-color: rgb(60, 63, 247);
     color: green;
     font-weight: bold;
     cursor: pointer;
