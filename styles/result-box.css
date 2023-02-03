@@ -3,4 +3,44 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    max-width: 350px;
+    width: 100%;
+    display: none;
+}
+
+.won-text{
+    font-size: 20px;
+    font-weight: medium;
+    display: flex;
+    justify-content: center;
+}
+
+.won-text p{
+    margin: 0px 8px;
+    font-weight: bold;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.btn button{
+    border: none;
+    background-color: rgb(60, 63, 247);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 8px;
+    padding: 8px 24px;
+    transition: all 0.3s ease;
+}
+
+.btn button:hover{
+    transform: scale(0.9);
 }
