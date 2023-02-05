@@ -41,6 +41,26 @@
     color: white;
 }
 
+.players.activeO span:nth-child(1){
+    color: rgb(60, 63, 247);
+}
+
+.players.activeO span:last-child{
+    visibility: hidden;
+}
+
+.players.activeO .slider{
+    left: 50%;
+}
+
+.players.activeX span:nth-child(1){
+    visibility: hidden;
+}
+
+.players.activeX span:nth-child(2){
+    color: rgb(60, 63, 247);
+}
+
 .details{
     background-color: white;
     border-radius: 8px;
@@ -56,6 +76,7 @@
     height: 100%;
     border-radius: 8px;
     z-index: 2;
+    transition: all 0.30s ease;
 }
 
 .play-area{
