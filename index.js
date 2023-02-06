@@ -24,7 +24,7 @@ window.onload = ()=> { //Once the window is loaded...onload works
     selectOBtn.addEventListener("click", ()=>{
         selectBox.classList.add("hide");
         playboard.classList.add("show");
-        players.setAttribute("class","players activeO");
+        players.setAttribute("class","players activeO play");
     });
 }
 
@@ -32,5 +32,9 @@ let playerXicon = "fas fa-times"; //class name of fontawesome cross icon.
 let playerOicon = "far fa-circle"; //class name of fontawesome circle icon.
 
 function clickedBox(element){
-    
+    if(players.classList.contains("play")){
+        element.innerHTML = `<i class="${playerOicon}"></i>`;
+    }else{
+        element.innerHTML = `<i class="${playerOicon}"></i>`;
+    }
 }
