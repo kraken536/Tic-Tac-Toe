@@ -33,7 +33,7 @@ let playerOicon = "far fa-circle"; //class name of fontawesome circle icon.
 
 function clickedBox(element){
     if(players.classList.contains("play")){
-        element.innerHTML = `<i class="${playerOicon}"></i>`;
+        element.innerHTML = `<i class="${playerXicon}"></i>`;
     }else{
         element.innerHTML = `<i class="${playerOicon}"></i>`;
     }
