@@ -28,7 +28,11 @@ window.onload = ()=> { //Once the window is loaded...onload works
 
 let playerXicon = "fas fa-times"; //class name of fontawesome cross icon.
 let playerOicon = "far fa-circle"; //class name of fontawesome circle icon.
-let o = "fa-sharp fa-solid";
+
+/*
+Those icons from fontawesome above don't a appear on the web page 
+if don't take our own key <script> from the fr-ontawesome official website. 
+*/
 
 function clickedBox(element){
     if(players.classList.contains("player")){
