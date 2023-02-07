@@ -34,7 +34,7 @@
     padding: 10px 0px;
     position: relative;
     z-index: 5;
-    color: rgb(60, 63, 247);
+    color: white;
     transition: all 0.4s ease;
 }
 
@@ -47,15 +47,11 @@
 }
 
 .players.activeO span:last-child{
-    visibility: hidden;
+    color: white;
 }
 
 .players.activeO .slider{
     left: 50%;
-}
-
-.players.activeX span:nth-child(1){
-    visibility: hidden;
 }
 
 .players.activeX span:nth-child(2){
@@ -95,8 +91,15 @@
     margin: 2px;
     cursor: pointer;
     border-radius: 8px;
-    font-size: 85px;
-    text-align: center;
+    font-size: 70px;
     z-index: 5;
     color: rgb(60, 63, 247);
+    position: relative;
+}
+
+.play-board section span i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

@@ -22,7 +22,7 @@ window.onload = ()=> { //Once the window is loaded...onload works
     selectOBtn.addEventListener("click", ()=>{
         selectBox.classList.add("hide");
         playboard.classList.add("show");
-        players.setAttribute("class","players activeO player");
+        players.setAttribute("class","players activeO");
     });
 }
 
@@ -35,10 +35,10 @@ if don't take our own key <script> from the fr-ontawesome official website.
 */
 
 function clickedBox(element){
-    if(players.classList.contains("player")){
-        element.innerHTML = `<i class="${playerXicon}"></i>`;
-    }else{
+    if(players.classList.contains("activeO")){
         element.innerHTML = `<i class="${playerOicon}"></i>`;
+    }else{
+        element.innerHTML = `<i class="${playerXicon}"></i>`;
     }
     element.style.pointerEvents = "none";   
 }
