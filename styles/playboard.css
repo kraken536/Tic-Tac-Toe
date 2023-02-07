@@ -35,6 +35,7 @@
     position: relative;
     z-index: 5;
     color: rgb(60, 63, 247);
+    transition: all 0.35s ease;
 }
 
 .players span:nth-child(1){
@@ -96,4 +97,6 @@
     border-radius: 8px;
     font-size: 85px;
     text-align: center;
+    z-index: 5;
+    color: rgb(60, 63, 247);
 }

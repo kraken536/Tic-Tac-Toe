@@ -11,30 +11,30 @@ const players = document.querySelector(".players");
 
 window.onload = ()=> { //Once the window is loaded...onload works
 
-    for(let i = 0; i < allBox.length; i++){
-        allBox[i].setAttribute("onclick", "clickedBox(this)");
-    };
+    allBox.forEach(box => (box.setAttribute("onclick", "clickedBox(this)")))
 
     selectXBtn.addEventListener("click", ()=>{
         selectBox.classList.add("hide");
         playboard.classList.add("show");
-        players.setAttribute("class","players activeX play");
+        players.setAttribute("class","players activeX");
     });
 
     selectOBtn.addEventListener("click", ()=>{
         selectBox.classList.add("hide");
         playboard.classList.add("show");
-        players.setAttribute("class","players activeO play");
+        players.setAttribute("class","players activeO player");
     });
 }
 
 let playerXicon = "fas fa-times"; //class name of fontawesome cross icon.
 let playerOicon = "far fa-circle"; //class name of fontawesome circle icon.
+let o = "fa-sharp fa-solid";
 
 function clickedBox(element){
-    if(players.classList.contains("play")){
+    if(players.classList.contains("player")){
         element.innerHTML = `<i class="${playerXicon}"></i>`;
     }else{
         element.innerHTML = `<i class="${playerOicon}"></i>`;
     }
+    element.style.pointerEvents = "none";   
 }
