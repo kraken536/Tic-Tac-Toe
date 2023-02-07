@@ -18,7 +18,7 @@ window.onload = ()=> { //Once the window is loaded...onload works
     selectXBtn.addEventListener("click", ()=>{
         selectBox.classList.add("hide");
         playboard.classList.add("show");
-        players.setAttribute("class","players activeX");
+        players.setAttribute("class","players activeX play");
     });
 
     selectOBtn.addEventListener("click", ()=>{
