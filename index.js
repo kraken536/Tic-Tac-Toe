@@ -8,6 +8,16 @@ const wonText = document.querySelector(".won-text");
 const resultBox = document.querySelector(".result-box");
 const allBox = document.querySelectorAll("section span");
 const players = document.querySelector(".players");
+const winConditions = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+    [1, 4, 7],
+    [2, 5, 8],
+    [3, 6, 9],
+    [1, 5, 9],
+    [3, 5, 7],
+];
 
 window.onload = ()=> { //Once the window is loaded...onload works
 
@@ -54,6 +64,7 @@ function clickedBox(element){
     element.style.pointerEvents = "none"; 
     playboard.style.pointerEvents = "none"; 
     setTimeout(bot, 850); //The bot function will be executed after 1 second the time is written in millisecond
+    selectWinner();
 }
 
 
@@ -88,7 +99,31 @@ function bot(){
 }
 
 
-//This function will select the winner.
-function getId(){
+//This function will select the winner by selecting the id.
+function getClass(idNumber){
+
+    //This will return the id of the selected box
+    return document.querySelector(".box" + idNumber).id; 
+}
+
+//The codition below will check if there 3 boxes having matching values < O or X >
+function checkClass(val1, val2, val3, sign){
+
+    if(getClass(val1) == sign && getClass(val2) == sign && getClass(val3) == sign){
+        return true;
+    }
+    return false;
+}
+
+//The function below will help us check if there is a winner or not.
+function selectWinner(){
+
+    winConditions.forEach(condition => {
+        //The condition below checks the winner if any...
+        if(getClass(condition[0]) == getClass(condition[1]) && getClass(condition[1]) == getClass(condition[2])){
+            console.log(getClass(condition[0]));
+        }
+    })
+    
 
 }
