@@ -30,6 +30,7 @@ window.onload = ()=> { //Once the window is loaded...onload works
 
 let playerXicon = "fas fa-times"; //class name of fontawesome cross icon.
 let playerOicon = "far fa-circle"; //class name of fontawesome circle icon.
+let playerSign = "X";
 
 /*
 Those icons from fontawesome above don't a appear on the web page 
@@ -39,14 +40,20 @@ if don't take our own key <script> from the fr-ontawesome official website.
 //User click function
 function clickedBox(element){
     if(players.classList.contains("activeO")){
+        playerSign = "O";
         element.innerHTML = `<i class="${playerOicon}"></i>`;
         players.setAttribute("class", "players activeX");
+        element.setAttribute("id", playerSign);
     }else{
+        playerSign = "X";
         element.innerHTML = `<i class="${playerXicon}"></i>`;
         players.setAttribute("class", "players activeO");
+        element.setAttribute("id", playerSign);
     }
-    element.style.pointerEvents = "none";  
-    setTimeout(bot, 1000); //The bot function will be executed after 1 second the time is written in millisecond
+
+    element.style.pointerEvents = "none"; 
+    playboard.style.pointerEvents = "none"; 
+    setTimeout(bot, 850); //The bot function will be executed after 1 second the time is written in millisecond
 }
 
 
@@ -67,10 +74,21 @@ function bot(){
         if(players.classList.contains("activeO")){
             allBox[randomBox].innerHTML = `<i class="${playerOicon}"></i>`;
             players.setAttribute("class", "players activeX");
+            playerSign = "O";
         }else{
             allBox[randomBox].innerHTML = `<i class="${playerXicon}"></i>`;
             players.setAttribute("class", "players activeO");
+            playerSign = "X";
         }
+        allBox[randomBox].setAttribute("id", playerSign);
         allBox[randomBox].style.pointerEvents = "none";
-    }    
+    }
+
+    playboard.style.pointerEvents = "all";    
+}
+
+
+//This function will select the winner.
+function getId(){
+
 }
