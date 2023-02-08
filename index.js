@@ -54,7 +54,8 @@ function clickedBox(element){
 function bot(){
     let unselectedBox = []; //We'll store all the non selected boxes in this array.
     
-    for(let i = 0; i < allBox.length; i++){
+    //The for loop is used to check the empty boxes after each click.
+    for(let i = 0; i < allBox.length; i++){ 
         if(allBox[i].childElementCount == 0){
             unselectedBox.push(i);
         }
