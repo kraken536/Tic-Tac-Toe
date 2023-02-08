@@ -46,7 +46,7 @@ function clickedBox(element){
         players.setAttribute("class", "players activeO");
     }
     element.style.pointerEvents = "none";  
-    setTimeout(bot, 1000);
+    setTimeout(bot, 1000); //The bot function will be executed after 1 second the time is written in millisecond
 }
 
 
