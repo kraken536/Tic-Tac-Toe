@@ -63,8 +63,10 @@ function clickedBox(element){
 
     element.style.pointerEvents = "none"; 
     playboard.style.pointerEvents = "none"; 
-    setTimeout(bot, 850); //The bot function will be executed after 1 second the time is written in millisecond
-    selectWinner();
+    if(selectWinner()){
+        console.log(playerSign + " is the winner!!!");
+    }
+    setTimeout(bot, 750); //The bot function will be executed after 1 second the time is written in millisecond
 }
 
 
@@ -118,12 +120,14 @@ function checkClass(val1, val2, val3, sign){
 //The function below will help us check if there is a winner or not.
 function selectWinner(){
 
-    winConditions.forEach(condition => {
-        //The condition below checks the winner if any...
-        if(getClass(condition[0]) == getClass(condition[1]) && getClass(condition[1]) == getClass(condition[2])){
-            console.log(getClass(condition[0]));
+    for(let i = 0; i < winConditions.length; i++){
+        let condition = winConditions[i];
+        let test1 = getClass(condition[0]) == getClass(condition[1]);
+        let test2 = getClass(condition[1]) == getClass(condition[2]); 
+        
+        if(test1 && test2){
+            console.log(playerSign + " is the winner!!!");
+            //return true;
         }
-    })
-    
-
+    } 
 }
