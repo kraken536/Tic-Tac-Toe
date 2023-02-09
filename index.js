@@ -121,7 +121,7 @@ function selectWinner(){
     winConditions.forEach(condition => {
         //The condition below checks the winner if any...
         if(getClass(condition[0]) == getClass(condition[1]) && getClass(condition[1]) == getClass(condition[2])){
-            console.log(getClass(condition[2]));
+            console.log(getClass(condition[0]));
         }
     })
     
