@@ -126,7 +126,7 @@ function selectWinner(){
         let test2 = getClass(condition[1]) == getClass(condition[2]); 
         
         if(test1 && test2){
-            console.log(playerSign + " is the winner!!!");
+            console.log(playerSign);
             //return true;
         }
     } 
