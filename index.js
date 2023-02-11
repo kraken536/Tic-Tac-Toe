@@ -60,12 +60,9 @@ function clickedBox(element){
         players.setAttribute("class", "players activeO");
         element.setAttribute("id", playerSign);
     }
-
+    selectWinner();
     element.style.pointerEvents = "none"; 
     playboard.style.pointerEvents = "none"; 
-    if(selectWinner()){
-        console.log(playerSign + " is the winner!!!");
-    }
     setTimeout(bot, 750); //The bot function will be executed after 1 second the time is written in millisecond
 }
 
@@ -97,7 +94,8 @@ function bot(){
         allBox[randomBox].style.pointerEvents = "none";
     }
 
-    playboard.style.pointerEvents = "all";    
+    playboard.style.pointerEvents = "all";
+    selectWinner();    
 }
 
 
@@ -122,12 +120,9 @@ function selectWinner(){
 
     for(let i = 0; i < winConditions.length; i++){
         let condition = winConditions[i];
-        let test1 = getClass(condition[0]) == getClass(condition[1]);
-        let test2 = getClass(condition[1]) == getClass(condition[2]); 
         
-        if(test1 && test2){
-            console.log(playerSign);
-            //return true;
+        if(checkClass(condition[0], condition[1], condition[2], playerSign)){
+            console.log(playerSign + " is the Winner!!!");
         }
     } 
 }
