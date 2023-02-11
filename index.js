@@ -137,7 +137,7 @@ function selectWinner(){
                 playboard.style.display = "none";
                 wonText.firstElementChild.textContent = playerSign;
                 resultBox.style.display = "initial";
-            }, 400);
+            }, 450);
         }
     } 
 }
