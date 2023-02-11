@@ -8,6 +8,7 @@ const wonText = document.querySelector(".won-text");
 const resultBox = document.querySelector(".result-box");
 const allBox = document.querySelectorAll("section span");
 const players = document.querySelector(".players");
+let runBot = true;
 const winConditions = [
     [1, 2, 3],
     [4, 5, 6],
@@ -63,39 +64,44 @@ function clickedBox(element){
     selectWinner();
     element.style.pointerEvents = "none"; 
     playboard.style.pointerEvents = "none"; 
-    setTimeout(bot, 750); //The bot function will be executed after 1 second the time is written in millisecond
+    //setTimeout(bot, 750); //The bot function will be executed after 1 second the time is written in millisecond
+    setTimeout(()=>{
+        bot();
+    }, 750)
 }
 
 
 //Bot click function.
 function bot(){
-    let unselectedBox = []; //We'll store all the non selected boxes in this array.
+    if(runBot){
+        let unselectedBox = []; //We'll store all the non selected boxes in this array.
     
-    //The for loop is used to check the empty boxes after each click.
-    for(let i = 0; i < allBox.length; i++){ 
-        if(allBox[i].childElementCount == 0){
-            unselectedBox.push(i);
+        //The for loop is used to check the empty boxes after each click.
+        for(let i = 0; i < allBox.length; i++){ 
+            if(allBox[i].childElementCount == 0){
+                unselectedBox.push(i);
+            }
         }
-    }
 
-    let randomBox = unselectedBox[Math.floor(Math.random() * unselectedBox.length)];
-    
-    if(unselectedBox.length > 0){
-        if(players.classList.contains("activeO")){
-            allBox[randomBox].innerHTML = `<i class="${playerOicon}"></i>`;
-            players.setAttribute("class", "players activeX");
-            playerSign = "O";
-        }else{
-            allBox[randomBox].innerHTML = `<i class="${playerXicon}"></i>`;
-            players.setAttribute("class", "players activeO");
-            playerSign = "X";
+        let randomBox = unselectedBox[Math.floor(Math.random() * unselectedBox.length)];
+
+        if(unselectedBox.length > 0){
+            if(players.classList.contains("activeO")){
+                allBox[randomBox].innerHTML = `<i class="${playerOicon}"></i>`;
+                players.setAttribute("class", "players activeX");
+                playerSign = "O";
+            }else{
+                allBox[randomBox].innerHTML = `<i class="${playerXicon}"></i>`;
+                players.setAttribute("class", "players activeO");
+                playerSign = "X";
+            }
+            selectWinner();
+            allBox[randomBox].setAttribute("id", playerSign);
+            allBox[randomBox].style.pointerEvents = "none";
         }
-        allBox[randomBox].setAttribute("id", playerSign);
-        allBox[randomBox].style.pointerEvents = "none";
-    }
 
-    playboard.style.pointerEvents = "all";
-    selectWinner();    
+        playboard.style.pointerEvents = "all";
+    }    
 }
 
 
@@ -123,6 +129,7 @@ function selectWinner(){
         
         if(checkClass(condition[0], condition[1], condition[2], playerSign)){
             console.log(playerSign + " is the Winner!!!");
+            runBot = false;
         }
     } 
 }
