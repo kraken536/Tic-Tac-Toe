@@ -130,6 +130,14 @@ function selectWinner(){
         if(checkClass(condition[0], condition[1], condition[2], playerSign)){
             console.log(playerSign + " is the Winner!!!");
             runBot = false;
+
+            //Now let's show the result box with the winner sign.
+            
+            setTimeout(()=>{
+                playboard.style.display = "none";
+                wonText.firstElementChild.textContent = playerSign;
+                resultBox.style.display = "initial";
+            }, 400);
         }
     } 
 }
