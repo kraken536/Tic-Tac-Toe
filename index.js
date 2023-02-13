@@ -160,5 +160,6 @@ function draw(){
 }
 
 replayBtn.addEventListener("click",()=>{
-    //Nothing for the moment
+    //The current page will be reloaded.
+    window.location.reload();
 });
