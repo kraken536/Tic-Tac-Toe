@@ -8,7 +8,9 @@ const wonText = document.querySelector(".won-text");
 const resultBox = document.querySelector(".result-box");
 const allBox = document.querySelectorAll("section span");
 const players = document.querySelector(".players");
+const replayBtn = document.querySelector("#replayBtn");
 let runBot = true;
+let round = 0;
 const winConditions = [
     [1, 2, 3],
     [4, 5, 6],
@@ -44,8 +46,8 @@ let playerOicon = "far fa-circle"; //class name of fontawesome circle icon.
 let playerSign = "X";
 
 /*
-Those icons from fontawesome above don't a appear on the web page 
-if don't take our own key <script> from the fr-ontawesome official website. 
+    Those icons from fontawesome above don't a appear on the web page 
+    if don't take our own key <script> from the fr-ontawesome official website. 
 */
 
 //User click function
@@ -61,18 +63,19 @@ function clickedBox(element){
         players.setAttribute("class", "players activeO");
         element.setAttribute("id", playerSign);
     }
+    round += 1;
     selectWinner();
     element.style.pointerEvents = "none"; 
     playboard.style.pointerEvents = "none"; 
     //setTimeout(bot, 750); //The bot function will be executed after 1 second the time is written in millisecond
     setTimeout(()=>{
-        bot();
-    }, 750)
+        bot(runBot);
+    }, 700)
 }
 
 
 //Bot click function.
-function bot(){
+function bot(runBot){
     if(runBot){
         let unselectedBox = []; //We'll store all the non selected boxes in this array.
     
@@ -95,13 +98,13 @@ function bot(){
                 players.setAttribute("class", "players activeO");
                 playerSign = "X";
             }
-            selectWinner();
             allBox[randomBox].setAttribute("id", playerSign);
             allBox[randomBox].style.pointerEvents = "none";
+            selectWinner();
         }
 
         playboard.style.pointerEvents = "all";
-    }    
+    }
 }
 
 
@@ -128,16 +131,28 @@ function selectWinner(){
         let condition = winConditions[i];
         
         if(checkClass(condition[0], condition[1], condition[2], playerSign)){
-            console.log(playerSign + " is the Winner!!!");
+            //console.log(playerSign + " is the Winner!!!");
             runBot = false;
+            bot(runBot);
 
             //Now let's show the result box with the winner sign.
-            
+            wonText.firstElementChild.textContent = playerSign;  
             setTimeout(()=>{
                 playboard.style.display = "none";
-                wonText.firstElementChild.textContent = playerSign;
                 resultBox.style.display = "initial";
-            }, 450);
+            }, 200);
         }
     } 
 }
+
+function draw(){
+    wonText.textContent = "Draw!!!";  
+        setTimeout(()=>{
+            playboard.style.display = "none";
+            resultBox.style.display = "initial";
+    }, 200);
+}
+
+replayBtn.addEventListener("click",()=>{
+    //Nothing for the moment
+});
