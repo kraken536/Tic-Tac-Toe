@@ -10,7 +10,7 @@ const allBox = document.querySelectorAll("section span");
 const players = document.querySelector(".players");
 const replayBtn = document.querySelector("#replayBtn");
 let runBot = true;
-let round = 0;
+var round = 0;
 const winConditions = [
     [1, 2, 3],
     [4, 5, 6],
@@ -77,6 +77,7 @@ function clickedBox(element){
 //Bot click function.
 function bot(runBot){
     if(runBot){
+        ++round;
         let unselectedBox = []; //We'll store all the non selected boxes in this array.
     
         //The for loop is used to check the empty boxes after each click.
@@ -140,17 +141,22 @@ function selectWinner(){
             setTimeout(()=>{
                 playboard.style.display = "none";
                 resultBox.style.display = "initial";
-            }, 200);
+            }, 300);
         }
+    }
+
+    if(round == 9){
+        runBot = false;
+        draw();
     } 
 }
 
 function draw(){
-    wonText.textContent = "Draw!!!";  
-        setTimeout(()=>{
-            playboard.style.display = "none";
-            resultBox.style.display = "initial";
-    }, 200);
+    wonText.textContent = `Draw!!!`;  
+    setTimeout(()=>{
+        playboard.style.display = "none";
+        resultBox.style.display = "initial";
+    }, 300);
 }
 
 replayBtn.addEventListener("click",()=>{
